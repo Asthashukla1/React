@@ -6,17 +6,24 @@ function App() {
  const [todos,setTodos] = useState([])
 
  const addTodo = (todo)=>{
-    return
+    setTodos((prev)=>[{id:Date.now(),...todo},...prev])
  }
  const deleteTodo = (id)=>{
-    return
+    setTodos((prev)=>
+    prev.filter((todo)=>todo.id!==id))
  }
  const updateTodo = (id,todo)=>{
-    return
+    setTodos((prev)=>
+      prev.map((prevTodo)=>
+      (prevTodo.id === id ? todo : prevTodo)
+    ))
  }
  const toggleComplete = (id)=>{
-    return
- }
+    setTodos((prev)=>
+    prev.map((prevTodo)=>
+    prevTodo.id === id? {...prevTodo, completed:!prevTodo.completed}: prevTodo
+  ))
+  }
 
 
 
