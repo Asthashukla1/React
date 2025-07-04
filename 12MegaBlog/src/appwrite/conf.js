@@ -75,7 +75,36 @@ export class Service{
             return false;
        }
     }
-
+    async uploadFile(file){
+       try {
+         return await this.bucket.createFile(
+            config.bucketId,
+            ID.unique(),
+            file
+         )
+       } catch (error) {
+            console.log('error in upload');
+            return false;
+       }
+    }
+    async deleteFile(fileID){
+        try {
+                 await this.bucket.deleteFile(
+                config.bucketId,
+                fileID
+            )
+                return true;
+        } catch (error) {
+            console.log("error in delete file");
+            return false;
+        }
+    }
+    getFilePreview(fileID){
+        return this.bucket.getFile(
+            config.bucketId,
+            fileID
+        )
+    }
 }
 
 
