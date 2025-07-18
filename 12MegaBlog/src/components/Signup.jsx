@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {Link, useNavigate} from 'react-router-dom'
-import {login as authLogin} from '../store/authSlice'
+import {login} from '../store/authSlice'
 import {Button, Logo, Input} from './index'
 import { useDispatch } from "react-redux";
 import authService from '../appwrite/auth'
@@ -12,13 +12,13 @@ function Signup(){
     const [error, setError] = useState("")
     const {register, handleSubmit} = useForm()
 
-    const login = async(data)=>{
+    const create = async(data)=>{
     setError("")
     try{
-      const session = await authService.login(data)
-      if(session){
+      const userData = await authService.createAccount(data)
+      if(userData){
         const userData= await authService.getCurrentUser()
-        if(userData) dispatch(authLogin(userData));
+        if(userData) dispatch(login(userData));
         navigate("/")
       }
     }
@@ -45,8 +45,16 @@ function Signup(){
                     </Link>
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-        <form onSubmit={handleSubmit(login)} className="mt-8">
+        <form onSubmit={handleSubmit(create)} className="mt-8">
             <div className="space-y-5">
+                <Input
+                label='Full name'
+                placeholder='Full name'
+                type='text'
+                {...register('name',{
+                    required:true,
+                })}
+                />
                <Input
                label="Email:"
                placeholder='Enter your email'
@@ -71,7 +79,7 @@ function Signup(){
                 type='submit'
                 className='w-full'
                 >
-               Sign in</Button>
+               Create Account</Button>
             </div>
         </form>
         </div>
