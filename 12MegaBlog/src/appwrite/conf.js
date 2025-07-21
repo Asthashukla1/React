@@ -89,7 +89,7 @@ export class Service{
     }
     async deleteFile(fileID){
         try {
-                 await this.bucket.deleteFile(
+                await this.bucket.deleteFile(
                 config.bucketId,
                 fileID
             )
