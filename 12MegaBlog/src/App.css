@@ -1,8 +1,21 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: 100%;      /* remove fixed max width */
+  margin: 0;            /* remove auto centering */
+  padding: 0;           /* remove padding to let content stretch */
+  width: 100vw;         /* full viewport width */
+  height: 100vh;        /* full viewport height if needed */
+  text-align: left;     /* reset text-align to default */
+}
+
+body {
+  background: #3e475c; /* Tailwind's gray-100 */
+  min-height: 100vh;
 }
 
 .logo {
