@@ -80,7 +80,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-    <RouterProvider router={router}/>
+      <div className="min-h-screen bg-gray-50 text-gray-800">
+        <RouterProvider router={router} />
+      </div>
     </Provider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

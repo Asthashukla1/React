@@ -31,19 +31,19 @@ function Home() {
     }
 
     return (
-        <div className="w-full py-12 bg-white">
-            <Container>
-                <h1 className="text-4xl font-bold text-gray-800 mb-10 text-center">
-                    Explore Posts
-                </h1>
-                <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {posts.map((post) => (
-                        <PostCard key={post.$id} {...post} />
-                    ))}
-                </div>
-            </Container>
-        </div>
-    )
+    <div className="w-full min-h-[calc(100vh-64px)] py-16 bg-gradient-to-br from-purple-50 via-pink-50 to-white">
+        <Container>
+            <h1 className="text-4xl font-bold text-gray-800 mb-12 text-center tracking-tight">
+                Explore Posts
+            </h1>
+            <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                {posts.map((post) => (
+                    <PostCard key={post.$id} {...post} />
+                ))}
+            </div>
+        </Container>
+    </div>
+)
 }
 
 export default Home

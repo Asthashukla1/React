@@ -17,9 +17,9 @@ function LogoutBtn() {
       onClick={logoutHandler}
       className="
         px-5 py-2
-        bg-red-600 text-white font-semibold
+        bg-pink-500  text-white font-semibold
         rounded-full
-        hover:bg-red-700
+        hover:bg-pink-600
         transition
         duration-300
         shadow-md

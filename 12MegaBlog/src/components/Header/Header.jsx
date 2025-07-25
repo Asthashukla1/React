@@ -17,7 +17,8 @@ function Header() {
   ];
 
   return (
-    <header className="bg-gradient-to-r from-blue-600 to-indigo-700 shadow-md sticky top-0 z-50">
+    <header className="bg-gradient-to-r from-purple-600 via-pink-500 to-pink-400
+ shadow-md sticky top-0 z-50">
       <Container>
         <nav className="flex items-center py-4">
           <div className="mr-6 cursor-pointer">
