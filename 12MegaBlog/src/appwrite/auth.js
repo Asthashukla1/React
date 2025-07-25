@@ -24,13 +24,17 @@ export class AuthService {
                return  userAccount;
             }
         } catch (error) {
+            if (error.code === 409) {
+             console.warn("User already exists. Prompting login instead.");
+             return this.login({ email, password }); // optionally try login here
+             }
             throw error;
         }
     }
 
     async login({email, password}) {
         try {
-            return await this.account.createEmailSession(email, password);
+            return await this.account.createEmailPasswordSession(email, password);
         } catch (error) {
             throw error;
         }
